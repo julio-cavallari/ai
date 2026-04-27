@@ -1,11 +1,15 @@
 # AI
 
-A curated repository of reusable guidance for AI coding agents. At the moment, this repository contains agent definitions focused on planning and review workflows.
+A curated repository of reusable guidance for AI coding agents. At the moment, this repository contains agent definitions and reusable skills focused on planning and review workflows.
 
 ### Agents
 
 - `agents/code-reviewer.md`: a review-focused agent for validating completed implementation work.
 - `agents/guided-planner.md`: a planning-focused agent that helps users shape an implementation plan before coding begins.
+
+### Skills
+
+- `skills/planning-question-gate/SKILL.md`: a planning guardrail skill that requires guided questions and explicit user approvals before any plan is drafted.
 
 ## What each agent does
 
@@ -36,3 +40,19 @@ Its main responsibilities are:
 - keep planning separate from execution and hand implementation off to another agent.
 
 Use this agent when the problem is still being defined, when tradeoffs need user approval, or when you want a plan captured before coding starts.
+
+## What each skill does
+
+### Planning Question Gate
+
+The Planning Question Gate skill is intended for planning conversations where unresolved trade-offs or ambiguities exist. It keeps the process in guided questioning until each material decision is explicitly approved by the user.
+
+Its main responsibilities are:
+
+- identify and surface unresolved material decisions one at a time;
+- ask focused, approval-oriented questions before moving forward;
+- avoid drafting plans while any material decision remains open;
+- summarize decisions and boundaries, then request explicit approval;
+- allow plan drafting only after all material decisions are resolved and approved.
+
+Use this skill when you want planning discipline, clear user ownership of decisions, and no autonomous assumption-making in plan creation.
